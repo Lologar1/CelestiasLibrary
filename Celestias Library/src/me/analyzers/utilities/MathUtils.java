@@ -130,10 +130,17 @@ public class MathUtils {
                                     + ANSIColors.RED + "info" + ANSIColors.RESET + ".");
                             return false;
                         }
+
                         String match = s[1];
                         AbstractMap map = nameToHolder.get(type);
                         ArrayList<Integer> toIntersect = new ArrayList<>();
-                        map.keySet().stream().filter(k -> ((String) map.get(k)).contains(match)).forEach(k -> toIntersect.add((Integer) k) );
+                        if (match.startsWith("regex ")) {
+                            String regmatch = match.replace("regex ", "");
+                            map.keySet().stream().filter(k -> ((String) map.get(k)).matches(regmatch)).forEach(k -> toIntersect.add((Integer) k) );
+                        } else {
+                            map.keySet().stream().filter(k -> ((String) map.get(k)).contains(match)).forEach(k -> toIntersect.add((Integer) k) );
+                        }
+
                         if ((!not && first) || or) {
                             first = false;
                             matching.addAll(toIntersect);

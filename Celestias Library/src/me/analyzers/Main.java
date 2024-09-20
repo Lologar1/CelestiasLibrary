@@ -119,6 +119,8 @@ public class Main {
                         + " a space. The keyword " + ANSIColors.YELLOW + "reversed" + ANSIColors.RESET + " may be given to an ordering as an additional argument to reverse the order.");
                 System.out.println(librarian + ": Note that the special set operators " + ANSIColors.YELLOW + "|" + ANSIColors.RESET + " (union) or " + ANSIColors.YELLOW
                         + "!" + ANSIColors.RESET + " (exclusion) may be applied before any argument. By default the set operation is intersection. Operations are applied in order of writing.");
+                System.out.println(librarian + ": It's also possible to filter using a regular expression by having the keyword " + ANSIColors.YELLOW + "regex" + ANSIColors.RESET
+                        + " after the filter. E.g. " + ANSIColors.RED + "search" + ANSIColors.YELLOW + " story +filter description regex sci.*fi" + ANSIColors.RESET);
                 System.out.println(librarian + ": For example, searching for stories about Twilight Sparkle and Vinyl Scratch (DJ P0N-3)" +
                         " and Princess Luna, but without princess celestia, with descriptions containing the word 'pony', ordered by rating is as simple as saying :");
                 System.out.println(librarian + ": " + ANSIColors.RED + "search" + ANSIColors.YELLOW +
